@@ -1,0 +1,74 @@
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    /* Makes the scrollbars dark on Chromium-based browsers
+       Firefox doesn't need this, because their scrollbars are tied to the background color
+       Didn't test on Safari, but will probably do the same as Chromium-based browsers, as they're both based on webkit */
+    color-scheme: dark;
+}
+
+body {
+    background-color: #001;
+    font-size: 1.05rem;
+    max-width: 62em;
+    margin-inline: auto;
+    padding-inline: 2em;
+}
+
+/* Some grid stuff */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    margin-block: 2em;
+    text-indent: 0;
+}
+
+/* Don't want underlines in our cards, would do a:has(.card) but
+   Firefox doesn't support that yet (without changing about:config) */
+a {
+    text-decoration: none;
+}
+
+/* Give the cards a background color and a nice glowy border, also some padding */
+.card {
+    border: 2px solid #334;
+    border-radius: 1em;
+    background-color: #112;
+    color: #fff;
+    padding: 1em;
+    box-shadow: 0 0 .5em .25em #112;
+    min-height: 100%;
+
+}
+
+/* Some other card styling */
+.card h1 {
+    font-size: 1.5em;
+}
+
+.card p {
+    word-wrap: break-word;
+}
+
+.card img {
+    width: 100%;
+}
+
+
+/* Responsiveness */
+@media screen and (max-width: 50em) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 40em) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
